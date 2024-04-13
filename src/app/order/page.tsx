@@ -56,9 +56,12 @@ const Page = () => {
   }, [cart]);
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart"));
-    if (storedCart) {
-      setCart(storedCart);
+    const storedCartString = localStorage.getItem("cart");
+    if (storedCartString) {
+      const storedCart = JSON.parse(storedCartString);
+      if (storedCart) {
+        setCart(storedCart);
+      }
     }
     setTimeout(() => {
       setLoading(false);
@@ -134,7 +137,7 @@ const Page = () => {
       setShowCheckoutPopup(true);
     }
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     if (!userInfo.name || !userInfo.email || !userInfo.address) {
       alert("Please fill all the fields.");
       e.preventDefault();
@@ -303,7 +306,9 @@ const Page = () => {
                 <textarea
                   name="address"
                   value={userInfo.address}
-                  onChange={handleUserInfoChange}
+                  onChange={() => {
+                    handleUserInfoChange;
+                  }}
                   placeholder="Address"
                   className="block border border-gray-300 rounded-md px-4 py-2 mb-4 w-full h-24 resize-none"
                 />
