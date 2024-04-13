@@ -1,113 +1,344 @@
+"use client";
 import Image from "next/image";
+import Header from "./header";
+import Footer from "./footer";
+import Reservation from "./reservation";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <div className="bg-[rgb(236,225,211)] text-[rgb(236,225,211)]">
+      <Header />
+      <div className="thisbg">
+        <div className="flex justify-around items-center max-w-[88rem] m-auto ">
+          <div className="max-w-[600px]">
+            <div className="">
+              <h1 className="text-xl tracking-[0.4rem] text-[rgb(210,112,74)]">
+                AUNTHENTIC JAPANESE CUISINE...
+              </h1>
+              <p className="text-7xl pt-4 bodoni-moda">
+                We serve the best food in{" "}
+                <span className="text-[rgb(210,112,74)]">town</span>
+              </p>
+              <p className="opacity-50">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Adipisci reiciendis repellat quam itaque perferendis nostrum
+                vitae totam earu!
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button
+                  onClick={() => {
+                    router.push("./menu");
+                  }}
+                  className="p-3 bg-[rgb(210,112,74)] text-[rgb(236,225,211)] rounded-full sm:mt-5 tracking-wider"
+                >
+                  View Menu →
+                </button>
+                <button
+                  onClick={() => {
+                    router.push("./order");
+                  }}
+                  className="p-3 bg-[rgb(33,78,72)] hover:bg-[rgb(210,112,74)] transition-all duration-300 border-[1px] border-[rgb(210,112,74)] text-white rounded-full sm:mt-5 tracking-wider"
+                >
+                  Order now →
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              className="opacity-0"
+              src="/banner.png"
+              alt="hero"
+              objectFit="cover"
+              quality={100}
+              width={600}
+              height={320}
+              style={{ transform: "rotate(-30deg)" }}
             />
-          </a>
+            <Image
+              className="absolute top-24 z-30 right-[165px]"
+              src="/banner.png"
+              alt="hero"
+              objectFit="cover"
+              quality={100}
+              width={700}
+              height={520}
+              style={{ transform: "rotate(-30deg)" }}
+            />
+            <Image
+              className="absolute top-[650px] z-30 right-[800px]"
+              src="/wigglly.png"
+              alt="hero"
+              objectFit="cover"
+              quality={100}
+              width={200}
+              height={120}
+              style={{ transform: "rotate(0deg)" }}
+            />
+            <div className="absolute opacity-20 text-[11rem] ungai top-[180px] left-[0px] z-10">
+              🍣Sumo Snacks
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="max-w-[88rem] text-3xl text-center p-24 m-auto text-black tracking-tighter flex flex-col items-center justify-center pt-[7rem]">
+        <div>Categories</div>
+        <div className="text-[rgb(45,105,97)] bodoni-moda text-5xl pt-6 max-w-[500px]">
+          Explore Our Exquisite JAPANESE Cuisine
+        </div>
+        <div className="pt-24 flex gap-7 ">
+          <div className=" w-[14rem] bg-[rgb(214,113,75)] rounded-lg p-2 text-center text-[rgb(236,225,211)]">
+            <Image
+              src="/ramen.png"
+              alt="hero"
+              objectFit="cover"
+              quality={100}
+              width={300}
+              height={300}
+              style={{ transform: "rotate(0deg)" }}
+            />
+            <div>Ramen</div>
+          </div>
+          <div className=" w-[14rem] bg-[rgb(33,78,72)] rounded-lg p-2 text-center text-[rgb(236,225,211)]">
+            <Image
+              src="/dump.png"
+              alt="hero"
+              objectFit="cover"
+              quality={100}
+              width={300}
+              height={300}
+              style={{ transform: "rotate(0deg)" }}
+            />
+            <div>Dumplings</div>
+          </div>
+          <div className=" w-[14rem] bg-[rgb(247,205,94)] rounded-lg p-2 text-center text-[rgb(236,225,211)]">
+            <Image
+              src="/riceball.png"
+              alt="hero"
+              objectFit="cover"
+              quality={100}
+              width={300}
+              height={300}
+              style={{ transform: "rotate(0deg)" }}
+            />
+            <div>Rice Balls</div>
+          </div>
+          <div className="w-[14rem] bg-[rgb(89,47,36)] rounded-lg p-2 text-center text-[rgb(236,225,211)]">
+            <Image
+              src="/mochi.png"
+              alt="hero"
+              objectFit="cover"
+              quality={100}
+              width={300}
+              height={300}
+              style={{ transform: "rotate(0deg)" }}
+            />
+            <div>Mochi</div>
+          </div>
+          <div className=" w-[14rem] bg-[rgb(214,113,75)] rounded-lg p-2 text-center text-[rgb(236,225,211)]">
+            <Image
+              src="/sushi.png"
+              alt="hero"
+              objectFit="cover"
+              quality={100}
+              width={300}
+              height={300}
+              style={{ transform: "rotate(0deg)" }}
+            />
+            <div>Sushi</div>
+          </div>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="flex mt-12 justify-between max-w-[76rem] text-black m-auto">
+        <div className="max-w-[600px] text-left text-xl ">
+          <div className="text-3xl pb-4">Delicious menu</div>
+          <div className="tracking-tighter text-6xl pb-4 text-[rgb(45,105,97)] bodoni-moda">
+            Awaken your taste buds.
+          </div>
+          <div className="text-lg opacity-50 pb-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Reprehenderit nulla vel cum minus dolorum quasi sint quidem quaerat
+            veniam fugiat.
+          </div>
+          <button
+            onClick={() => {
+              router.push("./menu");
+            }}
+            className="p-3 bg-[rgb(210,112,74)] text-white rounded-full sm:mt-5 tracking-wider"
+          >
+            View Menu →
+          </button>
+        </div>
+        <div>
+          <div>
+            <Image
+              src="/dumpking.jpg"
+              alt="hero"
+              objectFit="cover"
+              quality={100}
+              width={400}
+              height={600}
+              style={{ transform: "rotate(0deg)" }}
+            />
+          </div>
+        </div>
       </div>
-    </main>
+      <div id="about" className="thisbg py-24">
+        <div className="text-6xl flex justify-center pt-4 bodoni-moda pb-9">
+          Why Choose Us?
+        </div>
+        <div className="relative h-full max-w-[88rem] pl-[80px] m-auto flex justify-between">
+          <div>
+            <div className="flex flex-col max-w-[400px] p-4">
+              <span className="translate-x-[-20px]">
+                <Image
+                  src="/freshness.png"
+                  alt="hero"
+                  objectFit="cover"
+                  quality={100}
+                  width={70}
+                  height={70}
+                  style={{ transform: "rotate(0deg)" }}
+                />
+              </span>
+              <span className="text-3xl py-4">Freshness</span>
+              <span className="opacity-50">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+                debitis.
+              </span>
+            </div>
+            <div className="flex flex-col max-w-[400px] p-4">
+              <span className="translate-x-[-20px]">
+                <Image
+                  src="/ambience.png"
+                  alt="hero"
+                  objectFit="cover"
+                  quality={100}
+                  width={70}
+                  height={70}
+                  style={{ transform: "rotate(0deg)" }}
+                />
+              </span>
+              <span className="text-3xl py-4">Ambience</span>
+              <span className="opacity-50">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+                debitis.
+              </span>
+            </div>
+            <div className="flex flex-col max-w-[400px] p-4">
+              <span className="translate-x-[-20px]">
+                <Image
+                  src="/variety.png"
+                  alt="hero"
+                  objectFit="cover"
+                  quality={100}
+                  width={70}
+                  height={70}
+                  style={{ transform: "rotate(0deg)" }}
+                />
+              </span>
+              <span className="text-3xl py-4">Variety</span>
+              <span className="opacity-50">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+                debitis.
+              </span>
+            </div>
+          </div>
+          <div className="z-10">
+            <div className="flex flex-col max-w-[400px] p-4">
+              <span className="translate-x-[-20px]">
+                <Image
+                  src="/expertise.png"
+                  alt="hero"
+                  objectFit="cover"
+                  quality={100}
+                  width={70}
+                  height={70}
+                  style={{ transform: "rotate(0deg)" }}
+                />
+              </span>
+              <span className="text-3xl py-4">Expertise</span>
+              <span className="opacity-50">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+                debitis.
+              </span>
+            </div>
+            <div className="flex flex-col max-w-[400px] p-4">
+              <span className="translate-x-[-20px]">
+                <Image
+                  src="/authenticity.png"
+                  alt="hero"
+                  objectFit="cover"
+                  quality={100}
+                  width={70}
+                  height={70}
+                  style={{ transform: "rotate(0deg)" }}
+                />
+              </span>
+              <span className="text-3xl py-4">Authenticity</span>
+              <span className="opacity-50">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+                debitis.
+              </span>
+            </div>
+          </div>
+          <Image
+            className="absolute right-[-230px] top-[300px] z-5"
+            src="/wowsushi.png"
+            alt="hero"
+            objectFit="cover"
+            quality={100}
+            width={1146}
+            height={576}
+          />
+        </div>
+      </div>
+      <div className="py-24">
+        <div className="thisbg flex justify-around items-center max-w-[66rem] m-auto rounded-xl p-4">
+          <div>
+            <div className="text-5xl tracking-tighter py-4">
+              Enjoy The Delicious{" "}
+              <span className="text-[rgb(214,113,75)]">Food...</span>
+            </div>
+            <div className="max-w-[500px] pb-4 opacity-50">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim
+            </div>
+            <div className="flex gap-4 flex-wrap">
+              <button
+                onClick={() => {
+                  router.push("./menu");
+                }}
+                className="p-3 bg-[rgb(210,112,74)] hover:bg-[rgb(33,78,72)] transition-all duration-300 text-white rounded-full sm:mt-5 tracking-wider"
+              >
+                View Menu →
+              </button>
+              <button
+                onClick={() => {
+                  router.push("./order");
+                }}
+                className="p-3 bg-[rgb(33,78,72)] hover:bg-[rgb(210,112,74)] transition-all duration-300 border-[1px] border-[rgb(210,112,74)] text-white rounded-full sm:mt-5 tracking-wider"
+              >
+                Order now →
+              </button>
+            </div>
+          </div>
+          <div>
+            <Image
+              src="/lastimage.png"
+              alt="hero"
+              objectFit="cover"
+              quality={100}
+              width={300}
+              height={300}
+              style={{ transform: "rotate(0deg)" }}
+            />
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
   );
 }

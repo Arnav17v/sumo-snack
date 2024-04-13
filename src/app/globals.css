@@ -1,8 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap");
 
-:root {
+root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,10 +26,73 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  overflow-x: hidden;
+  background-color: rgba(33, 78, 72, 1);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.abril-fatface-regular {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bodoni-moda {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.thisbg {
+  background-color: rgba(33, 78, 72, 1);
+  opacity: 1;
+  background-image: radial-gradient(
+      rgba(255, 255, 255, 0.7) 0.75px,
+      transparent 0.75px
+    ),
+    radial-gradient(rgba(255, 255, 255, 0.7) 0.75px, rgba(33, 78, 72, 1) 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.thatbg {
+  background-color: rgba(33, 78, 72, 1);
+  opacity: 1;
+  background: radial-gradient(
+      circle,
+      transparent 20%,
+      rgba(33, 78, 72, 1) 20%,
+      rgba(33, 78, 72, 1) 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        rgba(33, 78, 72, 1) 20%,
+        rgba(33, 78, 72, 1) 80%,
+        transparent 80%,
+        transparent
+      )
+      25px 25px,
+    linear-gradient(#a9a4a4 2px, transparent 2px) 0 -1px,
+    linear-gradient(90deg, #a9a4a4 2px, rgba(33, 78, 72, 1) 2px) -1px 0;
+  background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+}
+
+@font-face {
+  font-family: "MyFont";
+  src: url("../../Ungai.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ungai {
+  font-family: "MyFont";
 }
