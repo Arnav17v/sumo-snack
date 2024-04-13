@@ -11,6 +11,9 @@ const Page = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [cart, setCart] = useState(() => {
     // Try to get the cart from local storage
+    if (typeof window === "undefined") {
+      return [];
+    }
     const localCart = localStorage.getItem("cart");
 
     // If it exists, use it. Otherwise, default to an empty array
