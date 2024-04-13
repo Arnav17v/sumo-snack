@@ -35,7 +35,7 @@ const ResForm = (props: { trigger: boolean; setTrigger: any }) => {
 
   const [lol, setlol] = useState(false);
 
-  const dothis = (e) => {
+  const dothis = (e: any) => {
     e.preventDefault();
     if (e.target[1].value.length !== 10) {
       e.preventDefault();
