@@ -152,7 +152,9 @@ const Page = () => {
     alert("Thank you for your order!");
   };
 
-  const handleUserInfoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUserInfoChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = event.target;
     setUserInfo((prevUserInfo) => ({
       ...prevUserInfo,
@@ -309,11 +311,11 @@ const Page = () => {
                 <textarea
                   name="address"
                   value={userInfo.address}
-                  onChange={() => {
-                    handleUserInfoChange;
+                  onChange={(e) => {
+                    handleUserInfoChange(e);
                   }}
                   placeholder="Address"
-                  className="block border border-gray-300 rounded-md px-4 py-2 mb-4 w-full h-24 resize-none"
+                  className="block border  border-gray-300 rounded-md px-4 py-2 mb-4 w-full h-24 resize-none"
                 />
                 <button
                   type="submit"
