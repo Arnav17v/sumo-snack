@@ -3,11 +3,34 @@ import Image from "next/image";
 import Header from "./header";
 import Footer from "./footer";
 import Reservation from "./reservation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
+  const [Loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  if (Loading) {
+    return (
+      <div>
+        <Header />
+        <div className="flex justify-center items-center bg-[rgb(236,225,211)] h-[80vh]">
+          <img
+            src="https://media.tenor.com/YSHdPP-LR1cAAAAi/star-rail-kuru.gif"
+            alt=""
+            width={100}
+            height={100}
+          />
+        </div>
+        <Footer />
+      </div>
+    );
+  }
   return (
     <div className="bg-[rgb(236,225,211)] text-[rgb(236,225,211)]">
       <Header />
