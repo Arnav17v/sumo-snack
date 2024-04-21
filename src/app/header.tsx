@@ -33,7 +33,7 @@ const Header = () => {
             Contact
           </div>
           <div
-            className="p-3 border-white border-2 rounded-xl"
+            className="p-3 border-white border-2 rounded-full cursor-pointer z-40"
             onClick={() => {
               setres(true);
             }}

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaConciergeBell } from "react-icons/fa";
+import { PiBowlFoodFill } from "react-icons/pi";
 
 const ResForm = (props: { trigger: boolean; setTrigger: any }) => {
   const [date, setDate] = useState(new Date());
@@ -49,10 +50,9 @@ const ResForm = (props: { trigger: boolean; setTrigger: any }) => {
   };
   return (
     <div className="text-black p-6 bg-white rounded-2xl max-w-[25rem]">
-      <p className="text-2xl font-bold p-2">Let us serve you better</p>
+      <p className="text-2xl font-bold p-2">Reserve Your Table Now!!</p>
       <p className="text-gray-500 p-2">
-        Don’t wait in a line to enjoy your meal. Reserve a table in advance with
-        us.
+        Skip the line and savor your meal stress-free!!
       </p>
       <form onSubmit={dothis}>
         <div>
@@ -77,9 +77,20 @@ const ResForm = (props: { trigger: boolean; setTrigger: any }) => {
             </div>
           </div>
           <div className="p-2">
+            <input
+              type="number"
+              placeholder="Enter number of people"
+              className="p-2 w-full border border-slate-900 rounded-full outline-none"
+              min="1"
+              max="10"
+              required
+            />
+          </div>
+          <div className="p-2">
             <p className="text-lg">Date</p>
             <div className="flex p-3 items-center gap-x-2 justify-around w-full">
               <button
+                type="button"
                 className={`p-2 px-4 rounded-full ${
                   date.toDateString() === new Date().toDateString()
                     ? "bg-[rgb(33,78,72)] text-white"
@@ -90,6 +101,7 @@ const ResForm = (props: { trigger: boolean; setTrigger: any }) => {
                 Today
               </button>
               <button
+                type="button"
                 className={`p-2 px-4 rounded-full ${
                   date.toDateString() ===
                   new Date(
@@ -116,8 +128,9 @@ const ResForm = (props: { trigger: boolean; setTrigger: any }) => {
           </div>
           <div className="p-2">
             <p className="text-lg">Session</p>
-            <div className="flex p-3 items-center gap-x-2 justify-around w-full">
+            <div className="flex p-3 items-center gap-x-2 justify-center w-full">
               <button
+                type="button"
                 className={`p-2 px-8 rounded-full ${
                   session === "Lunch"
                     ? "bg-[rgb(33,78,72)] text-white"
@@ -128,6 +141,7 @@ const ResForm = (props: { trigger: boolean; setTrigger: any }) => {
                 Lunch
               </button>
               <button
+                type="button"
                 className={`p-2 px-8 rounded-full ${
                   session === "Dinner"
                     ? "bg-[rgb(33,78,72)] text-white"
@@ -144,10 +158,10 @@ const ResForm = (props: { trigger: boolean; setTrigger: any }) => {
         <div className="w-full flex justify-center">
           <button
             type="submit"
-            className="rounded-full bg-[rgb(33,78,72)] text-white p-3 font-bold font-Raleway mx-auto mt-4"
+            className="rounded-xl bg-[rgb(33,78,72)] text-white p-3 font-bold font-Raleway mx-auto mt-4"
           >
             <div className="w-full flex flex-col">
-              <FaConciergeBell className=" text-2xl m-auto" />
+              <PiBowlFoodFill className=" text-2xl m-auto" />
               <p>Reserve Table</p>
             </div>
           </button>

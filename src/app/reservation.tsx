@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import ResForm from "./resform";
+import { IoMdClose } from "react-icons/io";
 
 const Reservaiton = (props: { trigger: boolean; setTrigger: any }) => {
   return props.trigger ? (
@@ -8,12 +9,12 @@ const Reservaiton = (props: { trigger: boolean; setTrigger: any }) => {
       <div className="relative p-4 flex flex-col">
         <ResForm trigger={props.trigger} setTrigger={props.setTrigger} />
         <button
-          className="absolute top-7 text-black right-7"
+          className="absolute top-7 text-black right-7 pt-5"
           onClick={() => {
             props.setTrigger(false);
           }}
         >
-          X
+          <IoMdClose className="text-2xl" />
         </button>
       </div>
     </div>

@@ -7,7 +7,7 @@ const menu = () => {
       <Header />
       <div className="flex justify-center items-center bg-[rgb(236,225,211)] p-6">
         <Image
-          className="z-40"
+          className="z-30"
           src="/MENU.jpg"
           alt="hero"
           objectFit="cover"

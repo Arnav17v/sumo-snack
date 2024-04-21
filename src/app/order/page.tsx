@@ -6,6 +6,8 @@ import { BsPlus, BsSubtract } from "react-icons/bs";
 import { FaMinus, FaPlus, FaShoppingCart } from "react-icons/fa";
 import Footer from "../footer";
 import Header from "../header";
+import { PiBowlFoodFill } from "react-icons/pi";
+import { IoMdClose } from "react-icons/io";
 
 const Page = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -165,31 +167,33 @@ const Page = () => {
   return (
     <div className="flex flex-col bg-[rgb(236,225,211)] ">
       <Header />
-      <div className="text-[#214E48] max-w-[88rem] m-auto pb-24">
-        <div className="flex items-center ">
-          <input
-            type="text"
-            placeholder="Search"
-            className="border border-slate-900 rounded-full p-2 outline-none mt-24"
-            onChange={searchFood}
-          />
+
+      <div className="text-[#214E48] max-w-[79rem] m-auto pb-24">
+        <div className="ungai text-8xl pt-24">Order</div>
+        <div className="flex gap-4 items-center flex-wrap ">
           <select
             value={selectedCategory}
             onChange={(e) => filterByCategory(e.target.value)}
-            className="ml-4 border border-slate-900 rounded-full p-2 outline-none mt-24"
+            className="ml-4 border rounded-xl p-2 outline-none mt-24"
           >
-            <option value="All">All Categories</option>
+            <option value="All">Categories</option>
             <option value="Japanese Appetizer">Japanese Appetizer</option>
             <option value="Japanese Main Course">Japanese Main Course</option>
             <option value="Japanese Soup">Japanese Soup</option>
             <option value="Japanese Desserts">Japanese Desserts</option>
             <option value="Japanese Beverage">Japanese Beverage</option>
           </select>
+          <input
+            type="text"
+            placeholder="Search"
+            className="border rounded-xl  p-2 outline-none mt-24"
+            onChange={searchFood}
+          />
           <button
             onClick={toggleCartVisible}
-            className="ml-auto rounded-full p-4 outline-none mt-24 flex items-center gap-3 relative bg-[#214E48] text-[rgb(236,225,211)] hover:shadow-xl"
+            className="ml-auto rounded-xl p-4 relative outline-none mt-24 flex items-center gap-3 bg-[#214E48] text-[rgb(236,225,211)]"
           >
-            <FaShoppingCart />
+            <PiBowlFoodFill />
             {cart && Object.keys(cart).length > 0 && (
               <span className="absolute top-0 right-0 h-5 w-5 bg-red-600 border-black border text-white rounded-full flex items-center justify-center text-xs">
                 {Object.keys(cart).length}
@@ -222,16 +226,16 @@ const Page = () => {
           ))}
           {filteredMenu.length === 0 && (
             <div className="text-center col-span-5 mt-5 text-2xl m-5 backdrop-blur-sm">
-              We dont have that yet😔
+              No items found💀🍣
             </div>
           )}
         </div>
         {cartVisible && (
           <div
             ref={cartRef}
-            className="bg-white fixed top-0 right-10 w-1/4 p-4 border border-gray-200 shadow-lg rounded-lg mt-24"
+            className="bg-[rgb(236,225,211)] fixed top-20 right-10 w-1/4 p-4 border border-gray-200 shadow-lg rounded-lg mt-24"
           >
-            <h2 className="text-lg font-semibold mb-2">Cart</h2>
+            <h2 className="text-2xl font-semibold mb-2">Cart</h2>
             <ul className="divide-y divide-gray-200">
               {cart &&
                 Object.keys(cart).map((itemName, index) => (
@@ -244,7 +248,7 @@ const Page = () => {
                       <span>{cart[itemName].quantity} </span>
                     </div>
                     <div className="flex items-center">
-                      <div className="flex gap-3">
+                      <div className="flex gap-7">
                         <button
                           onClick={() => addToCart(cart[itemName])}
                           className="text-gray-500 hover:text-green-600 focus:outline-none text-2xl"
@@ -273,24 +277,26 @@ const Page = () => {
             <div className="mt-4">
               <strong>Total:</strong> {getTotalPrice()} rs
             </div>
-            <button
-              onClick={clearCart}
-              className="bg-red-500 text-white py-2 px-4 mt-4 rounded hover:bg-red-600 focus:outline-none"
-            >
-              Clear Cart
-            </button>
-            <button
-              onClick={handleCheckout}
-              className="bg-green-500 text-white py-2 px-4 mt-4 rounded hover:bg-green-600 focus:outline-none"
-            >
-              Checkout
-            </button>
+            <div className="flex gap-2">
+              <button
+                onClick={clearCart}
+                className="bg-red-500 text-white py-2 px-4 mt-4 rounded hover:bg-red-600 focus:outline-none"
+              >
+                Clear Cart
+              </button>
+              <button
+                onClick={handleCheckout}
+                className="bg-green-500 text-white py-2 px-4 mt-4 rounded hover:bg-green-600 focus:outline-none"
+              >
+                Checkout
+              </button>
+            </div>
           </div>
         )}
         {showCheckoutPopup && (
           <div className="w-[100%] h-[100vh] fixed top-0 left-0 bg-[rgba(0,0,0,0.43)] z-40 flex justify-center items-center">
-            <div className=" bg-white p-8 border border-gray-200 shadow-lg rounded-lg relative">
-              <h2 className="text-xl font-semibold mb-4">Checkout</h2>
+            <div className=" bg-[rgb(236,225,211)] p-4 border border-gray-200 shadow-lg rounded-lg relative">
+              <h2 className="text-2xl font-semibold mb-4">Checkout</h2>
               <form>
                 <input
                   type="text"
@@ -298,7 +304,7 @@ const Page = () => {
                   value={userInfo.name}
                   onChange={handleUserInfoChange}
                   placeholder="Name"
-                  className="block border border-gray-300 rounded-md px-4 py-2 mb-4 w-full"
+                  className="block border max-w-64  rounded-xl px-2 py-2 mb-4 "
                 />
                 <input
                   type="email"
@@ -306,7 +312,7 @@ const Page = () => {
                   value={userInfo.email}
                   onChange={handleUserInfoChange}
                   placeholder="Email"
-                  className="block border border-gray-300 rounded-md px-4 py-2 mb-4 w-full"
+                  className="block border max-w-64 rounded-xl px-2 py-2 mb-4 "
                 />
                 <textarea
                   name="address"
@@ -315,12 +321,12 @@ const Page = () => {
                     handleUserInfoChange(e);
                   }}
                   placeholder="Address"
-                  className="block border  border-gray-300 rounded-md px-4 py-2 mb-4 w-full h-24 resize-none"
+                  className="block border max-w-64   rounded-xl px-2 py-2 mb-4  h-24 resize-none"
                 />
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 focus:outline-none"
+                  className="bg-green-500 text-white py-2 px-4 rounded-xl hover:bg-green-600 focus:outline-none"
                 >
                   Confirm Order
                 </button>
@@ -328,9 +334,9 @@ const Page = () => {
                   onClick={() => {
                     setShowCheckoutPopup(false);
                   }}
-                  className="absolute text-2xl cursor-pointer  top-7 text-black right-7"
+                  className="absolute text-2xl cursor-pointer top-3 text-black right-3"
                 >
-                  ❌
+                  <IoMdClose />
                 </div>
               </form>
             </div>
